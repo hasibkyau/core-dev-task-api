@@ -48,12 +48,16 @@ export default class App {
 
     this.express.enable('trust proxy');
 
-    // Load the middlewwares
-    this.express.use(
+     // Load the middlewares
+     this.express.use(
       cors({
-        origin: this.config.origin,
-        credentials: true
-      }));
+        origin: this.config.origin, // Replace this with your frontend origin
+        methods: ['GET', 'POST'], // Allow only GET and POST methods
+        // allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+        credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+      })
+    );
+
     this.express.use(morgan('common')); // Logger
     this.express.use(actuator({ infoGitMode: 'full' })); // Health Checker
     this.express.use(json()); // Parse JSON response

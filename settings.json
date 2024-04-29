@@ -3,7 +3,7 @@
   "base": "http://localhost:3000",
   "api": "http://localhost:9000",
   "origin": [
-    "http://localhost:3000",
+    "http://localhost:3001",
     "http://localhost:3000",
     "http://localhost:9000"
   ],

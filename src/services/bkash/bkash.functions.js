@@ -59,6 +59,9 @@ class BaseClass {
         mode,
         payerReference,
         callbackURL: 'http://localhost:9000/api/bkash/execute/?email=' + email + '&totalPrice=' + totalPrice,
+        amount: totalPrice,
+        intent: 'sale',
+        merchantInvoiceNumber: '001'
       };
       let headers = { Authorization: this.token, 'X-APP-Key': this.appKey };
       return await fetch({ method: 'POST', url, headers, data });
